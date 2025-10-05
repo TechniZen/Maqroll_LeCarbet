@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Marqueur Carbet Maqroll
   L.marker([4.930552542951605, -52.29476863501056]).addTo(map)
-    .bindPopup('<b>Carbet Maqroll</b><br>WPJ4+548, Chemin Saint-Antoine, Cayenne 97300, Guyane française')
+    .bindPopup('<b>Maqroll Le Carbet</b><br>WPJ4+548, Chemin Saint-Antoine, Cayenne 97300, Guyane française')
     .openPopup();
 
 
@@ -84,3 +84,4 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", revealOnScroll);
   revealOnScroll();
 });
+
