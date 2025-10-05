@@ -1,0 +1,411 @@
+/* --- RESET GÉNÉRAL --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #0b3d2e; /* vert forêt profond */
+  color: #f5f5dc;      /* blanc cassé */
+  line-height: 1.6;
+  transition: background 0.5s, color 0.5s;
+  scroll-behavior: smooth;
+}
+
+.alinea {
+  text-indent: 2em;
+  margin-bottom: 0;
+  line-height: 1.6;
+  font-size: 0.8rem; /* desktop */
+}
+
+/* --- HEADER --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: transparent;
+  transition: background 0.5s, backdrop-filter 0.5s, box-shadow 0.5s;
+}
+
+header.scrolled {
+  background: rgba(11, 61, 46, 0.6);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+body.dark header.scrolled {
+  background: rgba(0,0,0,0.4);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 5%;
+}
+
+.logo {
+  font-family: 'Bungee', cursive;
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #f5f5dc;
+  text-transform: uppercase;
+  transition: color 0.3s;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  text-decoration: none;
+}
+
+/* --- NAVIGATION ICÔNES + TEXTE --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f5f5dc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a i {
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  color: #ff8c42;
+  transform: scale(1.1);
+}
+
+/* --- DARK MODE BUTTON --- */
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+#theme-toggle i {
+  font-size: 1.4rem;
+  color: #f5f5dc;
+  transition: transform 0.3s, color 0.3s;
+}
+
+#theme-toggle:hover i {
+  transform: rotate(20deg);
+  color: #ffeb3b;
+}
+
+/* --- BURGER MENU --- */
+#burger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #f5f5dc;
+  cursor: pointer;
+}
+
+#close-menu {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #f5f5dc;
+  cursor: pointer;
+}
+
+
+
+nav ul li a i {
+  font-size: 1.2rem;
+}
+nav ul li a:hover {
+  color: #ff8c42;
+  transform: scale(1.1);
+}
+
+/* --- DARK MODE BUTTON --- */
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+#theme-toggle i {
+  font-size: 1.4rem;
+  color: #f5f5dc;
+  transition: transform 0.3s, color 0.3s;
+}
+#theme-toggle:hover i {
+  transform: rotate(20deg);
+  color: #ffeb3b;
+}
+
+/* --- HEADER SCROLLED & DARK --- */
+header.scrolled nav ul li a i,
+header.scrolled nav ul li a .nav-text,
+header.scrolled #theme-toggle i {
+  transition: color 0.3s;
+}
+body.dark header.scrolled nav ul li a i,
+body.dark header.scrolled nav ul li a .nav-text,
+body.dark header.scrolled #theme-toggle i {
+  color: #ffeb3b;
+}
+
+/* --- PULSE pour localisation au hover --- */
+nav ul li a:hover .pulse-icon {
+  animation: pulse 1.5s infinite;
+}
+
+/* --- SWING pour contact au hover --- */
+nav ul li a:hover .swing-icon {
+  animation: swing 2s infinite ease-in-out;
+}
+
+/* --- Keyframes --- */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes swing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+
+/* --- HERO --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 758px;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* voile vert forêt */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f5f5dc;
+  text-align: center;
+  padding: 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+.cta {
+  display: inline-block;
+  background: #ff8c42; /* orange soleil filtré */
+  color: #0b3d2e;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.cta:hover {
+  background: #e07b2f;
+}
+
+/* --- SECTIONS --- */
+.section {
+  padding: 80px 5%;
+  text-align: center;
+  background-image: url('images/texture-leaves.png'); /* texture feuillage */
+  background-size: cover;
+  background-blend-mode: multiply;
+  margin-bottom: 40px;
+  transition: background 0.5s, color 0.5s;
+}
+.bg-light {
+  background: rgba(27, 94, 64, 0.8);
+  backdrop-filter: blur(8px);
+}
+.section h2 {
+  color: #ff8c42;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
+}
+
+/* --- ABOUT --- */
+#about p {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+
+/* --- TARIFS --- */
+.tarifs {
+  list-style: none;
+  font-size: 1.1rem;
+  display: inline-block;
+  text-align: left;
+}
+
+/* --- GALERIE --- */
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+.galerie-grid img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.5s, filter 0.5s;
+}
+.galerie-grid img:hover {
+  transform: scale(1.05) rotate(1deg);
+  filter: brightness(1.1);
+}
+
+
+
+
+/* --- MAP --- */
+#map {
+  height: 400px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 3px solid rgba(27,94,64,0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #06241b;
+  color: #f5f5dc;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+/* --- SCROLL REVEAL --- */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- DARK MODE --- */
+body.dark {
+  background: #041f0f;
+  color: #f5f5dc;
+}
+body.dark .bg-light {
+  background: rgba(15, 45, 30, 0.8);
+}
+body.dark .cta {
+  background: #ff8c42;
+  color: #041f0f;
+}
+body.dark .cta:hover {
+  background: #e07b2f;
+}
+
+
+
+
+
+/* --- RESPONSIVE MOBILE --- */
+
+/*HEADER*/
+
+@media (max-width: 768px) {
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  p, .alinea {
+    font-size: 0.9rem !important; /* ajuste selon ton goût */
+  }
+
+  nav {
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(11,61,46,0.95);
+    backdrop-filter: blur(12px);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  nav.active {
+    transform: translateY(0);
+  }
+
+  #burger {
+    display: block;
+  }
+
+  #close-menu {
+    display: block;
+  }
+
+  nav ul li a {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+
