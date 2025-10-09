@@ -19,6 +19,56 @@ body {
   scroll-behavior: smooth;
 }
 
+/* --- SCROLLBAR PERSONNALISÉE (Webkit : Chrome, Edge, Safari) --- */
+::-webkit-scrollbar {
+  width: 10px;              /* largeur de la barre verticale */
+  height: 10px;             /* hauteur de la barre horizontale */
+}
+
+::-webkit-scrollbar-track {
+  background: #0b3d2e;      /* couleur de fond de la piste */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff8c42, #e07b2f); /* le curseur */
+  border-radius: 10px;
+  border: 2px solid #0b3d2e; /* petit contour pour effet creusé */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffa860, #ff8c42);
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff8c42 #0b3d2e;
+}
+
+body.dark::-webkit-scrollbar-track {
+  background: #041f0f;
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffb75e, #ff8c42);
+  border: 2px solid #041f0f;
+}
+
+body.dark * {
+  scrollbar-color: #ffb75e #041f0f;
+}
+
+.galerie-grid {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Scrollbar spéciale pour galerie */
+.galerie-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4caf50, #2e7d32);
+}
+
+
 .alinea {
   text-indent: 2em;
   margin-bottom: 0;
@@ -283,7 +333,6 @@ nav ul li a:hover .swing-icon {
   background-image: url('images/texture-leaves.png'); /* texture feuillage */
   background-size: cover;
   background-blend-mode: multiply;
-  margin-bottom: 40px;
   transition: background 0.5s, color 0.5s;
 }
 .bg-light {
@@ -297,6 +346,39 @@ nav ul li a:hover .swing-icon {
 }
 
 /* --- ABOUT --- */
+#about {
+  position: relative; /* nécessaire pour positionner les pseudo-éléments */
+  overflow: hidden; /* évite qu’ils débordent */
+}
+
+/* Palmier gauche */
+#about::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 330px;
+  height: 330px;
+  background: url('images/palmier.PNG') no-repeat left bottom;
+  background-size: contain;
+  opacity: 0.9; /* un peu de transparence */
+}
+
+/* Palmier droit */
+#about::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  margin-left: 200px;
+  right: 0;
+  width: 330px;
+  height: 330px;
+  background: url('images/palmier2.PNG') no-repeat right bottom;
+  background-size: contain;
+  opacity: 0.9;
+}
+
+
 #about p {
   text-align: left;
   max-width: 800px;
