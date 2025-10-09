@@ -379,14 +379,12 @@ nav ul li a:hover .swing-icon {
 }
 
 /* --- Cacher les palmiers sur mobile --- */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   #about::before,
   #about::after {
-    display: none;
-    content: none;
+    opacity: 0;
   }
 }
-
 
 #about p {
   text-align: left;
@@ -735,6 +733,7 @@ body.dark .cta:hover {
   }
 }
 }
+
 
 
 
