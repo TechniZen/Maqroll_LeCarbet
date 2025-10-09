@@ -378,13 +378,7 @@ nav ul li a:hover .swing-icon {
   opacity: 0.9;
 }
 
-/* --- Cacher les palmiers sur mobile --- */
-@media (max-width: 1100px) {
-  #about::before,
-  #about::after {
-    opacity: 0;
-  }
-}
+
 
 #about p {
   text-align: left;
@@ -416,13 +410,6 @@ nav ul li a:hover .swing-icon {
 
 
 
-/* Responsive : image sous le texte sur mobile */
-@media (max-width: 768px) {
-    .about-img{
-        width: 90%;
-        margin: 15px;
-    }
-}
 
 
 /* --- TARIFS --- */
@@ -524,17 +511,35 @@ nav ul li a:hover .swing-icon {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
   margin-top: 30px;
+  max-height: none;   /* supprime toute limite de hauteur */
+  overflow: visible;  /* supprime le scroll interne */
+  /* Pinterest effect */
+  grid-auto-rows: masonry;
 }
+
 .galerie-grid img {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  transition: transform 0.5s, filter 0.5s;
+  margin-bottom: 15px;
+  transition: transform 0.5s, filter 0.5s, opacity 0.8s, transform 0.8s;
+  display: block;
+  break-inside: avoid; /* évite que les images se coupent */
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
 }
+
+.galerie-grid img.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .galerie-grid img:hover {
-  transform: scale(1.05) rotate(1deg);
+  transform: scale(1.05);
   filter: brightness(1.1);
 }
+
+
 
 #contact a {
   color: #ffffff;
@@ -717,6 +722,26 @@ body.dark .cta:hover {
   }
 
 
+  /* ABOUT */
+
+@media (max-width: 768px) {
+    .about-img{
+        width: 90%;
+        margin: 15px;
+    }
+}
+
+
+/* --- Cacher les palmiers sur mobile --- */
+@media (max-width: 1100px) {
+  #about::before,
+  #about::after {
+    opacity: 0;
+  }
+}
+
+
+
   /* TARIFS */
 @media (max-width: 768px) {
   .tarifs-grid {
@@ -733,9 +758,6 @@ body.dark .cta:hover {
   }
 }
 }
-
-
-
 
 
 

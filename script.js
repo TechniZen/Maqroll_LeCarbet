@@ -115,6 +115,23 @@ document.addEventListener("DOMContentLoaded", () => {
     header.classList.toggle("scrolled", window.scrollY > 50);
   });
 
+
+// --- SCOLL REVEAL GALERIE --- 
+const galerieImages = document.querySelectorAll('.galerie-grid img');
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible'); // ajoute la classe pour l'animation
+      observer.unobserve(entry.target); // animation qu'une seule fois
+    }
+  });
+}, { threshold: 0.1 });
+
+galerieImages.forEach(img => observer.observe(img));
+
+
+
   // === SCROLL REVEAL ===
   const scrollElements = document.querySelectorAll(".scroll-reveal");
 
