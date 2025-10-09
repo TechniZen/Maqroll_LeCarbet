@@ -667,7 +667,7 @@ body.dark .cta:hover {
 
 /*HEADER*/
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
 
   .logo {
     font-size: 1rem;
@@ -733,6 +733,7 @@ body.dark .cta:hover {
   }
 }
 }
+
 
 
 
